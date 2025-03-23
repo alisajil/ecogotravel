@@ -1,0 +1,25 @@
+{
+  "name": "tripjack-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Tripjack API integration",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && chmod +x dist/mcp.js",
+    "start": "node dist/index.js",
+    "dev": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mcp",
+    "tripjack",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.7.0",
+    "@types/node": "^18.19.81",
+    "axios": "^1.8.4",
+    "typescript": "^5.8.2"
+  }
+}
