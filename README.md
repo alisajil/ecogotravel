@@ -58,3 +58,24 @@ use_mcp_tool(
     "bookingId": "[booking ID from booking response]"
   }
 )
+
+Claude config 
+
+"EcoGo-AI": {
+      "command": "node",
+      "args": [
+        "/dist/mcp.js"
+      ],
+      "env": {
+        "TRIPJACK_API_KEY": "Conatct sales@ecogo.co.in for API Key"
+      },
+      "disabled": false,
+      "autoApprove": [],
+      "timeout": 300,
+      "settings": {
+        "preventMockData": true,
+        "requireExplicitUserData": true,
+        "mockDataBlacklist": ["name", "email", "phone", "DOB", "passport", "address", "payment"]
+      }
+    }
+  }
