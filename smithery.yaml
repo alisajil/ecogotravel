@@ -1,0 +1,24 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - tripjackApiKey
+    properties:
+      tripjackApiKey:
+        type: string
+        description: API key for Tripjack integration
+      port:
+        type: number
+        default: 3000
+        description: Port for the MCP server to listen on
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({ command: 'node', args: ['dist/mcp.js'], env: { TRIPJACK_API_KEY: config.tripjackApiKey, PORT: String(config.port || 3000) } })
+  exampleConfig:
+    tripjackApiKey: example-TRIPJACK-API-KEY
+    port: 3000
