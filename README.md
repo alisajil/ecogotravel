@@ -1,81 +1,17 @@
-Ecogo  MCP Server Implementation
+<proposed_changes>
 
-Created a TypeScript-based MCP server using the official MCP SDK
-Implemented three tools:
-get_flight_data: Search for available flights
-book_best_flight: Book flights based on search results
-get_ticket_info: Retrieve booking details and ticket information
-Added comprehensive error handling and logging
-API Integration:
+<add_install>
+### Installing via Smithery
 
-Integrated with Tripjack's flight search, booking, and ticket information APIs
-Implemented proper request/response handling
-Added validation for all API requests
-Configuration:
+To install EcoGo-AI for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@alisajil/ecogotravel):
 
+```bash
+npx -y @smithery/cli install @alisajil/ecogotravel --client claude
+```
+</add_install>
 
-How to Use the MCP Server
-Search for Flights:
+<add_badge>
+[![smithery badge](https://smithery.ai/badge/@alisajil/ecogotravel)](https://smithery.ai/server/@alisajil/ecogotravel)
+</add_badge>
 
-use_mcp_tool(
-  server_name: "ecogoai",
-  tool_name: "get_flight_data",
-  arguments: {
-    "departureCity": "DEL",
-    "arrivalCity": "BOM",
-    "travelDate": "2025-04-01",
-    "adults": 1
-  }
-)
-Book a Flight:
-
-use_mcp_tool(
-  server_name: "tripjack",
-  tool_name: "book_best_flight",
-  arguments: {
-    "priceId": "[priceId from search results]",
-    "passengers": {
-      "adults": [
-        {
-          "firstName": "John",
-          "lastName": "Doe",
-          "title": "Mr"
-        }
-      ]
-    },
-    "contactInfo": {
-      "email": "john.doe@example.com",
-      "phone": "9999999999"
-    }
-  }
-)
-Get Ticket Information:
-
-use_mcp_tool(
-  server_name: "tripjack",
-  tool_name: "get_ticket_info",
-  arguments: {
-    "bookingId": "[booking ID from booking response]"
-  }
-)
-
-Claude config 
-
-"EcoGo-AI": {
-      "command": "node",
-      "args": [
-        "/dist/mcp.js"
-      ],
-      "env": {
-        "TRIPJACK_API_KEY": "Conatct sales@ecogo.co.in for API Key"
-      },
-      "disabled": false,
-      "autoApprove": [],
-      "timeout": 300,
-      "settings": {
-        "preventMockData": true,
-        "requireExplicitUserData": true,
-        "mockDataBlacklist": ["name", "email", "phone", "DOB", "passport", "address", "payment"]
-      }
-    }
-  }
+</proposed_changes>
